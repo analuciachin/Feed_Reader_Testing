@@ -68,10 +68,8 @@ $(function() {
          * hiding/showing of the menu element.
          */
         it('menu hidden', function(){
-            //var menuHidden = document.getElementsByClassName('menu-hidden');
-            var body = document.getElementsByTagName('body');
-
-            expect(body).toHaveClass('menu-hidden');
+           
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
 
 
@@ -80,7 +78,16 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
-    
+        
+        it('menu icon clicked', function() {
+            //click first time to toggle class
+            $('i').trigger('click');
+            expect($('body').hasClass('menu-hidden')).toBe(false);
+
+            //click second time to toggle class
+            $('i').trigger('click');
+            expect($('body').hasClass('menu-hidden')).toBe(true);
+        });
 
     });
 
