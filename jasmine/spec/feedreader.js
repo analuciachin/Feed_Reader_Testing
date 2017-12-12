@@ -111,10 +111,10 @@ $(function() {
             });
 
             
-            var entryLink = $('.entry-link');
             
             it('.feed container has at least one element', function(done){
-                expect(entryLink.length).toBe(0);    
+                var feedEntry = $('.feed .entry');
+                expect(feedEntry.length).toBeGreaterThan(0);    
                 done();
             });
             
@@ -135,24 +135,22 @@ $(function() {
 
             beforeEach(function(done) {
                 loadFeed(0,function() {
-                    firstEntry = document.querySelector(".feed").innerHTML;                
-                    console.log(firstEntry);
-                    done();
-                });
-                loadFeed(1,function() {
-                    secondEntry = document.querySelector(".feed").innerHTML;                
-                    console.log(secondEntry);
-                    done();
+                    // store old feed
+                    firstEntry = $(".feed").html();                
+                    
+                    // load new feed
+                    loadFeed(1,function() {
+                        done();
+                    });
                 });
             });
 
 
-            //console.log(firstEntry);
 
-            //it('content changes', function(done){
-                    
-            //    done();
-            //});
+            it('content changes', function(done){
+                expect($(".feed").html()).not.toBe(firstEntry);    
+                done();
+            });
 
         });        
 }());
