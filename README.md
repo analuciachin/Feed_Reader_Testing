@@ -1,7 +1,7 @@
 # Feed Reader Testing Project
 
 Create tests for a web-based application that reads RSS feeds using Jasmine library.
-The tests will show up at the bottom of the page after the page is loaded.
+Open the index.html file, after the page is loaded, Jasmine tests will show up at the bottom of the page.
 
 ## Test Suites
 
